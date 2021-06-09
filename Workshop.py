@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 import os
 import glob
+import shutil
 
 root = Tk()
 root.title("Workshop Changer")
@@ -9,8 +10,19 @@ root.title("Workshop Changer")
 frame1 = ttk.Frame(root, padding = 16)
 frame1.pack()
 
-#RLのpathがあってるか確認
-print(os.path.exists())
+#支柱のパスのかかれたtxtを読み込む
+f = open("RocketLeaguePath.txt", "r", encoding="UTF-8")
+epic_parent = f.read()
+
+backup_folder = "/Epic Games/rocketleague/TAGame/CookedPCConsole/"
+shichu = "Labs_CirclePillars_P.upk"
+folder_full_path = epic_parent + backup_folder
+full_path = folder_full_path + shichu
+
+#backupの存在確認
+if os.path.exists(full_path) == false:
+    if os.path.exists(folder_full_path):
+        shutil.copy(full_path, full_path + ".backup")
 
 #backupの確認
 
