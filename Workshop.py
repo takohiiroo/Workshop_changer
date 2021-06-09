@@ -20,11 +20,13 @@ folder_full_path = epic_parent + backup_folder
 full_path = folder_full_path + shichu
 
 #backupの存在確認
-if os.path.exists(full_path) == false:
+if not os.path.exists(full_path):
     if os.path.exists(folder_full_path):
+        
         shutil.copy(full_path, full_path + ".backup")
+    else:
+        
 
-#backupの確認
 
 #各マップのフォルダーの名前を取得しmap_namesに代入
 map_folder = "./Maps"
