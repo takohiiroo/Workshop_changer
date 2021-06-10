@@ -4,13 +4,7 @@ import os
 import glob
 import shutil
 
-root = Tk()
-root.title("Workshop Changer")
-
-frame1 = ttk.Frame(root, padding = 16)
-frame1.pack()
-
-#支柱のパスのかかれたtxtを読み込む
+#Epic Gamesのパスのかかれたtxtを読み込む
 f = open("RocketLeaguePath.txt", "r", encoding="UTF-8")
 epic_parent = f.read()
 
@@ -22,11 +16,16 @@ full_path = folder_full_path + shichu
 #backupの存在確認
 if not os.path.exists(full_path):
     if os.path.exists(folder_full_path):
-        
         shutil.copy(full_path, full_path + ".backup")
     else:
-        
+        import setting
 
+
+
+root = Tk()
+root.title("Workshop Changer")
+frame1 = ttk.Frame(root, padding = 16)
+frame1.pack()
 
 #各マップのフォルダーの名前を取得しmap_namesに代入
 map_folder = "./Maps"
